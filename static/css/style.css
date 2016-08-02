@@ -130,72 +130,80 @@ a:hover { text-decoration: underline; }
 
 /* Code */
 .highlight pre {
-  font-size: 14px;
-  overflow: auto;
-  padding: 8px;
+    font-size: 14px;
+    overflow: auto;
+    padding: 8px;
 }
 
 /* Sidebar */
 aside {
-  font-size: 14px;
-  width: 220px; height: 100%;
-  position: fixed;
-  top: 0; left: 0;
-  padding: 30px;
-  background-color: #2980b9;
-  color: white;
-  box-shadow: 0 0 3px black;
-  text-align: center;
-  padding-top: 8%;
-  background-size: cover;
+    font-size: 14px;
+    width: 200px; height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    padding: 30px;
+    background-color: #2980b9;
+    color: white;
+    box-shadow: 0 0 3px black;
+    text-align: center;
+    padding-top: 6%;
+    background-size: cover;
 }
 
 aside > ul {
-  list-style-type: none;
-  padding: 0px 10px;
-  margin-top: 0px;
+    list-style-type: none;
+    padding: 0px 10px;
+    margin-top: 0px;
 }
-aside > h2 { 
-  text-transform: uppercase;
-  font-size: 14px; 
-  margin-bottom: 5px;
+
+#sitename {
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+aside > h2 {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 #avatar {
-  width: 100px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 10px 20px 0;
-  box-shadow: 0px 0px 5px 3px #1DAEDF;
-  -webkit-transition: 200ms;
-     -moz-transition: 200ms;
-      -ms-transition: 200ms;
-       -o-transition: 200ms;
-          transition: 200ms;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 10px 20px 0;
+    box-shadow: 0px 0px 5px 3px #1DAEDF;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -ms-transition: 200ms;
+    -o-transition: 200ms;
+    transition: 200ms;
 }
 
 #avatar:hover {
-  box-shadow: 0px 0px 5px 3px white;
+    box-shadow: 0px 0px 5px 3px white;
 }
 
 .social
 {
-  display: inline-block;
-  margin-top: 40px;
+    display: inline-block;
+    margin-top: 40px;
 }
 
 .nav
 {
-  display: block;
-  margin-left: -30px;
-  margin-right: -30px;
-  border: 1px solid #328cc7;
-  margin-top: 40px;
+    display: block;
+    margin-left: -30px;
+    margin-right: -30px;
+    border: 1px solid #328cc7;
+    margin-top: 10px;
 }
 
 .nav > ul > li
 {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .nav a
@@ -206,22 +214,39 @@ aside > h2 {
 }
 
 .nav a:hover
-{
-    background-color: #328cc7;
-}
+           {
+               background-color: #328cc7;
+           }
 
 .list-bare
 {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.nav__link 
+.nav_link
 {
-  display: block;
-  padding: 0.77273rem 0;
-  border-bottom: 1px solid #328cc7;
+    font-weight: bold;
+    display: block;
+    padding: 0.77273rem 0;
+    border-bottom: 1px solid #328cc7;
+}
+
+a.nav_link > span.hover { display: none; }
+a.nav_link:hover > span.default { display: none; }
+a.nav_link:hover > span.hover { display: inline; }
+
+a.sitename > h1, h2.blog-navbar {
+    font-weight: bold;
+}
+
+.blog-navbar-tag.active, .blog-navbar-cat.active {
+    font-weight: bold;
+}
+
+.blog-navbar > .blog-navbar-tag > a, .blog-navbar > .blog-navbar-cat > a {
+    color: #FFF;
 }
 
 
@@ -229,42 +254,73 @@ aside > h2 {
 
 @media (max-width: 800px) {
 
-  aside {
-    left: 0;
-    max-width: none;
-    position: relative;
-    top: 0;
-    width: 100%;
-    padding: 0;
-    padding-top: 1px;
-  }
+    aside {
+        left: 0;
+        max-width: none;
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        padding-top: 1px;
+    }
 
-  .nav
-  {
-    margin-left: 0;
-    margin-right: 0;
-  }
+    .nav
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
-  body > article {
-    margin: 0 auto;
-    padding-top: 5px;
-    padding: 1em;
-  }
+    body > article {
+        margin: 0 auto;
+        padding-top: 5px;
+        padding: 1em;
+    }
 
-  footer
-  {
-    padding: 1em;
-    margin-left: 1em;
-    margin-top: 0;
-  }
+    footer
+    {
+        padding: 1em;
+        margin-left: 1em;
+        margin-top: 0;
+    }
 
-  #avatar {
-    height: 50px;
-    width: 50px;
-    margin: 10px auto;
-  }
+    #avatar {
+        height: 50px;
+        width: 50px;
+        margin: 10px auto;
+    }
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
+}
+
+.my-pic {
+    float: left;
+}
+
+/* Sticky footer */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.main {
+    padding: 20px;
+    padding-bottom: 40px;
+}
+
+footer {
+    font-size: 12px;
+    height: 40px;
+    margin-top: -40px;
+    padding: 0 80px 0px;
+}
+
+/* RC Scout */
+.rc-scout {
+    text-align: right;
 }
