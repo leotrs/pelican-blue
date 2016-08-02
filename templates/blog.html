@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+<meta name="twitter:url" content="{{ SITEURL }}">
+<meta name="twitter:title" content="{{ SITENAME }}">
+<meta name="twitter:description" content="{{ SIDEBAR_DIGEST }}">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="{{ SITENAME }}" />
+<meta property="og:description" content="{{ SIDEBAR_DIGEST }}" />
+<meta property="og:image" content="" />
+{% endblock head %}
+{% block content_title %}
+{% endblock %}
+
+{% block categories %}
+<h2 class="blog-navbar">Categories</h2>
+<ul class="blog-navbar">
+  {% for cat, null in categories|sort %}
+  <span class="blog-navbar-cat{% if cat == category %} active{% endif %}">
+    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+  </span>
+  {% endfor %}
+</ul>
+<hr>
+<h2 class="blog-navbar">Tags</h2>
+<ul class="blog-navbar">
+  {% for this_tag, null in tags|sort %}
+  <span class="blog-navbar-tag{% if (article and this_tag in article.tags) or (tag and this_tag == tag) %} active{% endif %}">
+    <a href="{{ SITEURL }}/{{ this_tag.url }}">{{ this_tag }}</a>
+  </span>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+{% endblock content %}

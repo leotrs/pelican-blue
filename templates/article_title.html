@@ -1,0 +1,8 @@
+{% macro article_title(article, heading_level, class="post_title") -%}
+<h{{ heading_level }} class="{{ class }}" style="display: inline;">
+  <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+</h{{ heading_level }}>
+<h{{ heading_level + 1 }} style="display: inline;">
+  <span>{% if article.summary|length > 0 %} ... {{ article.summary|striptags }}{% endif %}</span>
+</h{{ heading_level + 1 }}>
+{%- endmacro %}
