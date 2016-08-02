@@ -3,6 +3,7 @@
   <head>
     {% block head %}
     <meta charset="utf-8">
+
     <!-- Site Meta Data -->
     <title>{% block title %} {{ SITENAME }} | {{ SIDEBAR_DIGEST }} {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,29 +49,9 @@
         <!-- Sidebar -->
         <aside>
           <a href="{{ SITEURL }}"><h1 id="sitename">{{ SITENAME }}</h1></a>
-          {% if SIDEBAR_DIGEST %}
-          <p>{{ SIDEBAR_DIGEST }}</p>
-          {% endif %}
-          <br>
+          {% if SIDEBAR_DIGEST %}<p>{{ SIDEBAR_DIGEST }}</p>{% endif %}
 
-          {% if TWITTER_USERNAME %}
-          <a class="twitter-follow-button"
-             href="https://twitter.com/{{ TWITTER_USERNAME }}"
-             data-show-count="false"
-             data-lang="en">
-            Follow @twitterdev
-          </a>
-          <script type="text/javascript">
-           window.twttr = (function (d, s, id) {
-               var t, js, fjs = d.getElementsByTagName(s)[0];
-               if (d.getElementById(id)) return;
-               js = d.createElement(s); js.id = id;
-               js.src= "https://platform.twitter.com/widgets.js";
-               fjs.parentNode.insertBefore(js, fjs);
-               return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
-           }(document, "script", "twitter-wjs"));
-          </script>
-          {% endif %}
+          <br>
 
           <nav class="nav">
             <ul class="list-bare">
@@ -116,32 +97,14 @@
     </div>
 
     <!-- Footer -->
-    {% if DISPLAY_FOOTER or DISPLAY_FOOTER is not defined %}
     <footer>
       <div class="rc-scout"></div>
     </footer>
-    {% endif %}
+    <!-- RC Scout -->
+    <script async defer src="https://www.recurse-scout.com/loader.js?t=8ee529bb51c0ad21d73b98a45a13d144"></script>
 
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    {% if GOOGLE_ANALYTICS %}
-    <!-- Analytics -->
-    <script type="text/javascript">
-     var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
-     _gaq.push(['_trackPageview']);
-     (function() {
-         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-     })();
-    </script>
-    {% endif %}
-
-
-    <!-- RC Scout -->
-    <script async defer src="https://www.recurse-scout.com/loader.js?t=8ee529bb51c0ad21d73b98a45a13d144"></script>
 
   </body>
 </html>
