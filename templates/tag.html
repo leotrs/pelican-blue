@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "blog.html" %}
 {% block head %}
 {{ super() }}
 <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
@@ -11,4 +11,18 @@
 <meta property="og:description" content="Articles de {{ tag }}" />
 <meta property="og:image" content="{{ AVATAR }}" />
 {% endblock head %}
-{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+{% block title %}
+{{ SITENAME }} - {{ tag }}
+{% endblock %}
+
+{% block content %}
+
+{% if articles %}
+{% include "article_list.html" %}
+{% endif %}
+
+{% if articles_page and articles_paginator.num_pages > 1 %}
+{% include 'pagination.html' %}
+{% endif %}
+
+{% endblock %}

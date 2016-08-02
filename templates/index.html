@@ -13,28 +13,21 @@
 {% endblock head %}
 {% block content_title %}{% endblock %}
 {% block content %}
-<h1 class="title">Hi, I'm {{ AUTHOR }}</h1>
+<h1 class="title">{{ AUTHOR }}</h1>
 
-{% if articles %}
-<ol>
-	<h2 class="latest">Latest Posts</h2>
-	{% for article in (articles_page.object_list if articles_page else articles) %}
-	<li class="post_list"><p class="post_entry">
-		<h2 class="post_title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-                {% if DISPLAY_SUMMARY and article.summary|length > 0 %}
-                        <p>{{ article.summary }}</p>
-                {% endif %}
-		<a href="{{ SITEURL }}/{{ article.author.url }}">@{{ article.author }}</a>
-		<span> in </span>
-		<span class="post_category"><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">[ {{ article.category }} ]</a></span>
-		<span class="post_date">{{ article.locale_date }}</span>
-	</li>
-	{% endfor %}
-</ol>
-{% endif %}
+<section id="content" class="body">
 
-{% if articles_page and articles_paginator.num_pages > 1 %}
-{% include 'pagination.html' %}
-{% endif %}
+  <p>This is the personal website of <strong>Diego Leonardo Torres Navarrete</strong>
+    (or Diego Torres (or Leo Torres (or Leo))).</p>
 
+  <p><a href="pages/am.html">This</a> is who I am <i>(aka bio)</i>.</p>
+  <p><a href="pages/did.html">This</a> is what I did <i>(aka CV)</i>.</p>
+  <p><a href="pages/read.html">This</a> is what I read <i>(aka probably outdated and certainly incomplete list of things I read)</i>.</p>
+  <p><a href="do.html">This</a> is what I do <i>(aka blog)</i>.</p>
+
+  <p>If that's <i>still</i> not enough for you, I guess you can <a href="{{ SOCIAL['email'] }}">
+  write</a> to me, review my <a href="{{ SOCIAL['github'] }}">code</a>, or
+  <a href="{{ SOCIAL['twitter'] }}">follow</a> me, or whatever. </p>
+
+</section>
 {% endblock content %}
